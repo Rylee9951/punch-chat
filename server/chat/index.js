@@ -1,7 +1,9 @@
 function runsocket(io) {
 
   io.on('connection', socket => {
-    console.log('connected')
+    socket.on('new message', function (msg) {
+      io.emit('new message', msg)
+    })  
   })
   
 }
